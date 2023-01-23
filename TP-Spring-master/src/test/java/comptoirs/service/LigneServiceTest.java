@@ -81,9 +81,7 @@ class LigneServiceTest {
         Integer commandeNum = NUMERO_COMMANDE_PAS_LIVREE;
         Integer produitRef = REFERENCE_PRODUIT_DISPONIBLE_1;
         int quantite = 5;
-        var produit = produitDao.findById(produitRef).orElseThrow();
-        int quantiteCommandee = produit.getUnitesCommandees() ;
-        service.ajouterLigne(commandeNum, produitRef, quantite);
-        assertEquals(quantiteCommandee + quantite, produit.getUnitesCommandees());
+        var ligne = service.ajouterLigne(commandeNum, produitRef, quantite);
+        assertEquals( quantite, ligne.getProduit().getUnitesCommandees());
     }
 }
