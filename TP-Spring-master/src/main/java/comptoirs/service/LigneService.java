@@ -56,7 +56,9 @@ public class LigneService {
             ligneDao.save(ligne);
             produitDao.save(produit);
             produit.setUnitesCommandees(produit.getUnitesCommandees() + quantite);
-            produitDao.save(produit);
+        }
+        else {
+            throw new IllegalArgumentException("Aucune ligne ajoutée");
         }
         return ligne;
 
